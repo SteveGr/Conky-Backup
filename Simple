@@ -99,7 +99,6 @@ ${color #3B5D7E}Kernel:${color orange} $kernel
 ${color #3B5D7E}Uptime:${color orange} $uptime
 ${color #3B5D7E}Frequency (in MHz):${color orange} $freq
 ${color #3B5D7E}RAM Usage:${color orange} $mem/$memmax - $memperc% ${membar 4}
-${color #3B5D7E}Swap Usage:${color orange} $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color #3B5D7E}CPU Usage:${color orange} $cpu% ${cpubar 4}
 ${color #3B5D7E}WD 80GB Temp:${color orange} ${hddtemp /dev/sdc} C
 ${color #3B5D7E}WD 250GB Temp:${color orange} ${hddtemp /dev/sdb} C

@@ -1,0 +1,126 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+alignment top_right
+
+background yes
+
+border_width 1
+
+cpu_avg_samples 2
+
+default_color dark green
+
+default_gauge_size 25 25
+
+default_outline_color white
+
+default_shade_color white
+
+double_buffer yes
+
+draw_borders no
+
+draw_graph_borders yes
+
+draw_outline no
+
+draw_shades no
+
+font xfontsel
+
+use_xft yes
+
+xftfont Ubuntu:size=12
+
+gap_x 5
+
+gap_y 60
+
+minimum_size 5 5
+
+net_avg_samples 2
+
+no_buffers yes
+
+out_to_console no
+
+out_to_stderr no
+
+extra_newline no
+
+own_window yes
+
+own_window_class Conky
+
+own_window_transparent yes
+
+own_window_type conky
+
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+stippled_borders 0
+
+update_interval 1
+
+uppercase no
+
+use_spacer none
+
+show_graph_scale no
+
+show_graph_range no
+
+temperature_unit celcius
+
+TEXT
+${color orange}${alignc}SYSTEM
+$color${alignc}$sysname $kernel on $machine
+ System Temp: ${color orange}${hwmon temp 1}°C
+$color +3.3 V:${color orange}              ${hwmon vol 2} V
+$color +5 V:${color orange}                 ${hwmon vol 3} V
+$color +12 V:${color orange}               ${hwmon vol 4 {factor * 3.963}} V
+$color System Fan 1:${color orange} ${hwmon fan 2} rpm
+$color System Fan 2:${color orange} ${hwmon fan 3} rpm
+$color System Fan 3:${color orange} ${hwmon fan 5} rpm
+$color Since Boot:${color orange}      $uptime_short
+${alignc}PERFORMANCE
+$color GPU Temp:${color orange}      ${hwmon 2 temp 1}°C
+$color CPU:${color orange} $cpu% $color ${cpubar 6}
+$color CPU Temp:${color orange}      ${hwmon temp 2}°C
+$color CPU Fan:${color orange}          ${hwmon fan 1} rpm
+$color CPU Voltage:${color orange}   ${hwmon vol 0} V
+$color CPU Freq:${color orange}         ${freq} MHz
+$color RAM:${color orange} $mem$color of ${color orange}$memmax - $memperc% $color ${membar 6}
+$color DDR3 Voltage:${color orange} ${hwmon vol 1} V
+${color orange}${alignc}STORAGE
+$color WD 80GB Temp:${color orange} ${hddtemp /dev/sdc}°C
+$color Drive Space:$color${fs_bar 6 /}$color
+$alignc              Used:${color orange}${fs_used /}$color   Free:${color orange}${fs_size /}
+${alignc}USAGE
+$color Name              PID   CPU%   MEM%
+${color orange} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color orange} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color orange} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
